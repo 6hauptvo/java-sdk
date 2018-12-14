@@ -186,8 +186,9 @@ public class HttpClientSingleton {
 
       X509TrustManager trustManager = (X509TrustManager) trustManagers[0];
 
-      System.setProperty("com.ibm.jsse2.overrideDefaultTLS", "true");
-      SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+      //System.setProperty("com.ibm.jsse2.overrideDefaultTLS", "true");
+      //SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+      SSLContext sslContext = SSLContext.getInstance("TLS");
 
       sslContext.init(null, new TrustManager[] { trustManager }, null);
       SSLSocketFactory sslSocketFactory = new DelegatingSSLSocketFactory(sslContext.getSocketFactory()) {
